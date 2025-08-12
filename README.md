@@ -99,4 +99,4 @@
    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 12. Access the application:
    - You should see the Ingemark application running.
-   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`~~~~
+   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
