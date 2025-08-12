@@ -7,7 +7,7 @@
 3. Install java 17
    ```bash
    brew install openjdk@17
-	```
+   ```
 4. Add Java 17 to your PATH:
    ```bash
    echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
@@ -36,56 +36,50 @@
    If you want to use a different database name, user or password, make sure to update the `application.properties`
 8. Clone the repository:
    ```bash
-	git clone https://github.com/karikiram/Ingemark.git
-	```
+   git clone https://github.com/karikiram/Ingemark.git
+   ```
 9. Open the project in your preferred IDE (e.g., IntelliJ IDEA).
 10. Navigate to the project directory and open the project.
-	- If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
-	- If you are using another IDE, follow the instructions for opening a Gradle project.
+   - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
+   - If you are using another IDE, follow the instructions for opening a Gradle project.
 11. In IntelliJ IDEA, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
-	- Alternatively, you can run the following command in the terminal:
-	```bash
-	./gradlew build
-	```
-	This will download the necessary dependencies and build the project. The whole project works out of the box.
-	Make sure to have the PostgreSQL server running.
+   - Alternatively, you can run the following command in the terminal:
+   ```bash
+   ./gradlew build
+   ```
+   This will download the necessary dependencies and build the project. The whole project works out of the box.
+   Make sure to have the PostgreSQL server running.
 12. Run main class:
-	- In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
-	- Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
+   - In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
+   - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 14. Access the application:
-	- You should see the Ingemark application running.
-	- Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
+   - You should see the Ingemark application running.
+   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
 
 # Windows - Installation guide
-
 1. Download and install [Git for Windows](https://git-scm.com/download/win).
-
 2. Download and install [Amazon Corretto 17](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html) (choose the Windows x64 MSI installer).
-
 3. Set `JAVA_HOME` and update `PATH`:
-	- Open "System Properties" > "Advanced" > "Environment Variables".
-	- Add a new `JAVA_HOME` variable pointing to your Corretto install path (e.g., `C:\Program Files\Amazon Corretto\jdk17.0.x_x`).
-	- Edit the `Path` variable and add `%JAVA_HOME%\bin`.
-
+   - Open "System Properties" > "Advanced" > "Environment Variables".
+   - Add a new `JAVA_HOME` variable pointing to your Corretto install path (e.g., `C:\Program Files\Amazon Corretto\jdk17.0.x_x`).
+   - Edit the `Path` variable and add `%JAVA_HOME%\bin`.
 4. Download and install [Gradle](https://gradle.org/install/):
-	- Download the binary-only ZIP.
-	- Extract to a folder (e.g., `C:\Gradle`).
-	- Add `C:\Gradle\bin` to your `Path` environment variable.
-
+   - Download the binary-only ZIP.
+   - Extract to a folder (e.g., `C:\Gradle`).
+   - Add `C:\Gradle\bin` to your `Path` environment variable.
 5. Download and install [PostgreSQL](https://www.postgresql.org/download/windows/):
-	- Run the installer and follow the prompts.
-
-6. Initialize and start PostgreSQL:
-	- Open "pgAdmin" or use the command line.
-	- Open `psql` (e.g., from `C:\Program Files\PostgreSQL\15\bin\psql.exe`) and connect as user `postgres`.
-	- Create a database and user:
+   - Run the installer and follow the prompts.
+6. Initialize and start PostgreSQL
+   - Open "pgAdmin" or use the command line.
+   - Open `psql` (e.g., from `C:\Program Files\PostgreSQL\15\bin\psql.exe`) and connect as user `postgres`.
+   - Create a database and user:
    ```sql
    CREATE DATABASE productsdb;
    CREATE USER myuser WITH PASSWORD 'mypassword';
    GRANT ALL PRIVILEGES ON DATABASE productsdb TO myuser;
    \q
-    ```
-   7. Clone the repository:
+   ```
+7. Clone the repository:
    ```powershell
    git clone https://github.com/karikiram/Ingemark.git
    ```
@@ -94,15 +88,15 @@
    - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
    - If you are using another IDE, follow the instructions for opening a Gradle project.
 10. In IntelliJ IDEA, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
-    - Alternatively, you can run the following command in the terminal:
-    ```bash
-    .\gradlew build
-    ```
-    This will download the necessary dependencies and build the project. The whole project works out of the box.
-    Make sure to have the PostgreSQL server running.
+   - Alternatively, you can run the following command in the terminal:
+   ```bash
+   .\gradlew build
+   ```
+   This will download the necessary dependencies and build the project. The whole project works out of the box.
+   Make sure to have the PostgreSQL server running.
 11. Run main class:
-    - In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
-    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
+   - In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
+   - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 12. Access the application:
-    - You should see the Ingemark application running.
-    - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`~~~~
+   - You should see the Ingemark application running.
+   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`~~~~
