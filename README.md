@@ -42,7 +42,7 @@
 10. Navigate to the project directory and open the project.
    - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
    - If you are using another IDE, follow the instructions for opening a Gradle project.
-11. In IntelliJ IDEA, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
+11. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't. Open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
    - Alternatively, you can run the following command in the terminal:
    ```bash
    ./gradlew build
@@ -50,7 +50,7 @@
    This will download the necessary dependencies and build the project. The whole project works out of the box.
    Make sure to have the PostgreSQL server running.
 12. Run main class:
-   - In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
+   - In IntelliJ IDEA, you can click run(Ingemark application) on configuration after gradle build and indexing finished, but alternatively. Right-click on the `Main` class and select "Run 'Main.main()'".
    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 14. Access the application:
    - You should see the Ingemark application running.
@@ -73,6 +73,7 @@
    CREATE USER myuser WITH PASSWORD 'mypassword';
    GRANT ALL PRIVILEGES ON DATABASE productsdb TO myuser;
    ```
+   If you want to use a different database name, user or password, make sure to update the `application.properties`
 6. Clone the repository:
    ```powershell
    git clone https://github.com/karikiram/Ingemark.git
@@ -96,7 +97,7 @@
    - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
 
 # Additional Notes
-- Be sure to have proper configuration on application.properties file. Configuration in guide is if all ports are default.
+- Be sure to have proper configuration on application.properties file. Configuration in guide is if all settings are default.
 - If you want to change the database name, user or password, make sure to update the `application.properties` file accordingly.
 - If you encounter any issues, check the console output for error messages and ensure that all services (PostgreSQL, etc.) are running correctly.
 - If you want to run the application on a different port, you can change the `server.port` property in the `application.properties` file.
