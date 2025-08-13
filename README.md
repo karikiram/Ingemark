@@ -42,7 +42,7 @@
 10. Navigate to the project directory and open the project.
    - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
    - If you are using another IDE, follow the instructions for opening a Gradle project.
-11. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't. Open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
+11. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
    - Alternatively, you can run the following command in the terminal:
    ```bash
    ./gradlew build
@@ -82,7 +82,7 @@
 8. Navigate to the project directory and open the project.
    - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
    - If you are using another IDE, follow the instructions for opening a Gradle project.
-9. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't. Open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
+9. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
    - Alternatively, you can run the following command in the terminal:
    ```bash
    .\gradlew build

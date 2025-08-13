@@ -6,6 +6,7 @@ import com.ingemark.product.exception.ProductNotFoundException;
 import com.ingemark.product.model.Product;
 import com.ingemark.product.service.ProductService;
 import jakarta.validation.Valid;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +47,9 @@ public class ProductController {
 		try {
 			Product product = service.createProduct(productMapper.mapFrom(productDto));
 			return ResponseEntity.status(HttpStatus.CREATED).body(productMapper.mapTo(product));
+		} catch (DataIntegrityViolationException ex) {
+			return ResponseEntity.status(HttpStatus.CONFLICT)
+					.body("Product with code " + productDto.getCode() + " already exists.");
 		} catch (Exception ex) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body("Failed to create product: " + ex.getMessage());

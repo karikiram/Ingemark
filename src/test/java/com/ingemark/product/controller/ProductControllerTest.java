@@ -133,4 +133,21 @@ public class ProductControllerTest {
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
 		assertEquals("Failed to create product: DB error", response.getBody());
 	}
+
+	/**
+	 * Tests the case when creating a product fails due to a DataIntegrityViolationException.
+	 * It verifies that the response status is CONFLICT and contains an appropriate message.
+	 */
+	@Test
+	public void testCreateProduct_DataIntegrityViolation() {
+		ProductDto dto = new ProductDto();
+		dto.setCode("P1");
+		when(productService.createProduct(any(Product.class)))
+				.thenThrow(new org.springframework.dao.DataIntegrityViolationException("Duplicate"));
+
+		ResponseEntity<?> response = productController.createProduct(dto);
+
+		assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
+		assertEquals("Product with code P1 already exists.", response.getBody());
+	}
 }

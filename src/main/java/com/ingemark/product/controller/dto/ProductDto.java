@@ -22,7 +22,6 @@ public class ProductDto {
 	private String name;
 
 	/** Price of the product in EUR, must be a non-negative value. */
-	@NotBlank(message = "Price must be specified")
 	private BigDecimal priceEur;
 
 	/** Price of the product in USD, calculated from the EUR price using an external API. */
