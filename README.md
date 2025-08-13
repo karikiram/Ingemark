@@ -25,7 +25,7 @@
    ```bash
    brew services start postgresql
    ```
-   Create a database named `ingemark`:
+   Create a database named `ingemark`(run each line separately):
    ```bash
    psql postgres
    CREATE DATABASE productsdb;
@@ -63,40 +63,41 @@
    - Open "System Properties" > "Advanced" > "Environment Variables".
    - Add a new `JAVA_HOME` variable pointing to your Corretto install path (e.g., `C:\Program Files\Amazon Corretto\jdk17.0.x_x`).
    - Edit the `Path` variable and add `%JAVA_HOME%\bin`.
-4. Download and install [Gradle](https://gradle.org/install/):
-   - Download the binary-only ZIP.
-   - Extract to a folder (e.g., `C:\Gradle`).
-   - Add `C:\Gradle\bin` to your `Path` environment variable.
-5. Download and install [PostgreSQL](https://www.postgresql.org/download/windows/):
+4. Download and install [PostgreSQL](https://www.postgresql.org/download/windows/):
    - Run the installer and follow the prompts.
-6. Initialize and start PostgreSQL
-   - Open "pgAdmin" or use the command line.
-   - Open `psql` (e.g., from `C:\Program Files\PostgreSQL\15\bin\psql.exe`) and connect as user `postgres`.
-   - Create a database and user:
+5. Initialize and start PostgreSQL
+   - Open `psql` (e.g., from `C:\Program Files\PostgreSQL\15\bin\psql.exe`) and connect as user `postgres` (you can just click enter until it asks for the password).
+   - Create a database and user(run each line separately):
    ```sql
    CREATE DATABASE productsdb;
    CREATE USER myuser WITH PASSWORD 'mypassword';
    GRANT ALL PRIVILEGES ON DATABASE productsdb TO myuser;
-   \q
    ```
-7. Clone the repository:
+6. Clone the repository:
    ```powershell
    git clone https://github.com/karikiram/Ingemark.git
    ```
-8. Open the project in your preferred IDE (e.g., IntelliJ IDEA).
-9. Navigate to the project directory and open the project.
+7. Open the project in your preferred IDE (e.g., IntelliJ IDEA).
+8. Navigate to the project directory and open the project.
    - If you are using IntelliJ IDEA, you can do this by selecting "Open" from the welcome screen and choosing the project directory.
    - If you are using another IDE, follow the instructions for opening a Gradle project.
-10. In IntelliJ IDEA, open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
+9. In IntelliJ IDEA, gradle should automatically import all dependencies but in case it doesn't. Open the `build.gradle` file and click on "Load Gradle Changes" if prompted.
    - Alternatively, you can run the following command in the terminal:
    ```bash
    .\gradlew build
    ```
    This will download the necessary dependencies and build the project. The whole project works out of the box.
-   Make sure to have the PostgreSQL server running.
-11. Run main class:
-   - In IntelliJ IDEA, right-click on the `Main` class and select "Run 'Main.main()'".
+   Make sure to have the PostgreSQL server running(you can check in services if the postgre is running).
+10. Run main class:
+   - In IntelliJ IDEA, you can click run(Ingemark application) on configuration after gradle build and indexing finished, but alternatively. Right-click on the `Main` class and select "Run 'Main.main()'".
    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
-12. Access the application:
+11. Access the application:
    - You should see the Ingemark application running.
    - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
+
+# Additional Notes
+- Be sure to have proper configuration on application.properties file. Configuration in guide is if all ports are default.
+- If you want to change the database name, user or password, make sure to update the `application.properties` file accordingly.
+- If you encounter any issues, check the console output for error messages and ensure that all services (PostgreSQL, etc.) are running correctly.
+- If you want to run the application on a different port, you can change the `server.port` property in the `application.properties` file.
+- Gradle download is not included in guide, because it is included with IntelliJ IDEA.
