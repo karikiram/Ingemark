@@ -4,7 +4,7 @@
    ```bash
    brew install git
    ```
-3. Install java 17
+3. Install java 17:
    ```bash
    brew install openjdk@17
    ```
@@ -17,7 +17,7 @@
    ```bash
    brew install gradle
    ```
-6. Install postgresql
+6. Install postgresql:
    ```bash
    brew install postgresql
    ```
@@ -33,7 +33,7 @@
    GRANT ALL PRIVILEGES ON DATABASE productsdb TO myuser;
    \q
    ```
-   If you want to use a different database name, user or password, make sure to update the `application.properties`
+   If you want to use a different database name, user or password, make sure to update the `application.properties`.
 8. Clone the repository:
    ```bash
    git clone https://github.com/karikiram/Ingemark.git
@@ -54,7 +54,7 @@
    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 14. Access the application:
    - You should see the Ingemark application running.
-   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
+   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`.
 
 # Windows - Installation guide
 1. Download and install [Git for Windows](https://git-scm.com/download/win).
@@ -65,7 +65,7 @@
    - Edit the `Path` variable and add `%JAVA_HOME%\bin`.
 4. Download and install [PostgreSQL](https://www.postgresql.org/download/windows/):
    - Run the installer and follow the prompts.
-5. Initialize and start PostgreSQL
+5. Initialize and start PostgreSQL:
    - Open `psql` (e.g., from `C:\Program Files\PostgreSQL\15\bin\psql.exe`) and connect as user `postgres` (you can just click enter until it asks for the password).
    - Create a database and user(run each line separately):
    ```sql
@@ -73,7 +73,7 @@
    CREATE USER myuser WITH PASSWORD 'mypassword';
    GRANT ALL PRIVILEGES ON DATABASE productsdb TO myuser;
    ```
-   If you want to use a different database name, user or password, make sure to update the `application.properties`
+   If you want to use a different database name, user or password, make sure to update the `application.properties`.
 6. Clone the repository:
    ```powershell
    git clone https://github.com/karikiram/Ingemark.git
@@ -94,8 +94,8 @@
    - Spring application includes an embedded Tomcat server, so you don't need to deploy it to an external server.
 11. Access the application:
    - You should see the Ingemark application running.
-   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`
-
+   - Use swagger to test the endpoints: `http://localhost:8080/swagger-ui/index.html`.
+~~~~
 # Additional Notes
 - Be sure to have proper configuration on application.properties file. Configuration in guide is if all settings are default.
 - If you want to change the database name, user or password, make sure to update the `application.properties` file accordingly.

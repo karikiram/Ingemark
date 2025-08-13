@@ -21,7 +21,7 @@ public class GlobalExceptionHandlerTest {
 		ProductNotFoundException ex = new ProductNotFoundException("Product not found");
 		ResponseEntity<String> response = handler.handleProductNotFound(ex);
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-		assertTrue(response.getBody().contains("Product not found"));
+		assertEquals("Product with code Product not found not found.", response.getBody());
 	}
 }
 

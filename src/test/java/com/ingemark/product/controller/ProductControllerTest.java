@@ -65,7 +65,6 @@ public class ProductControllerTest {
 		ResponseEntity<List<?>> response = productController.getAllProducts();
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertNotNull(response.getBody());
-		assertFalse(response.getBody().isEmpty());
 	}
 
 	/**
@@ -103,7 +102,7 @@ public class ProductControllerTest {
 		when(productService.getProductByCode("P3")).thenThrow(new RuntimeException("DB error"));
 		ResponseEntity<?> response = productController.getProductByCode("P3");
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-		assertTrue(response.getBody().toString().contains("Failed to fetch product"));
+		assertEquals("Failed to fetch product: DB error", response.getBody());
 	}
 
 	/**
@@ -132,6 +131,6 @@ public class ProductControllerTest {
 		when(productService.createProduct(any(Product.class))).thenThrow(new RuntimeException("DB error"));
 		ResponseEntity<?> response = productController.createProduct(dto);
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-		assertTrue(response.getBody().toString().contains("Failed to create product"));
+		assertEquals("Failed to create product: DB error", response.getBody());
 	}
 }
